@@ -161,7 +161,7 @@ If ((Test-Connection $domainNameInput -Count 1 -quiet) -eq $True)
 {
 try {
 $W32OS = Get-WmiObject -Class Win32_OperatingSystem -ComputerName $domainNameInput -ErrorAction SilentlyContinue
-$timespan = $W32OS.ConvertToDateTime($W32OS.LocalDateTime) – $W32OS.ConvertToDateTime($W32OS.LastBootUpTime)
+$timespan = $W32OS.ConvertToDateTime($W32OS.LocalDateTime) â€“ $W32OS.ConvertToDateTime($W32OS.LastBootUpTime)
 [int]$uptime = "{0:00}" -f $timespan.TotalHours
 }
 catch [exception] {
@@ -606,4 +606,4 @@ foreach ($domainController in $allDomainControllers){
       #Send email message
       Send-MailMessage @smtpsettings -Body $htmlreport -BodyAsHtml -Encoding ([System.Text.Encoding]::UTF8)
        
-    }  
+    }
